@@ -1,0 +1,28 @@
+﻿@using PerformanceTool.Models
+@model List<PerformanceTool.Models.UrlModel>
+@{
+    ViewBag.Title = "UrlList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>UrlList</h2>
+@{
+    List<UrlModel> resList = new List<UrlModel>();
+
+    if (Model != null)
+    {
+        <table border="1">
+            <tr>
+                <td>Url</td>
+                <td>PageSpeed</td>
+            </tr>
+            @foreach (UrlModel url in resList)
+            {
+                <tr>
+                    <td>@url.Url</td>
+                    <td>@url.PageLoadSeconds</td>
+                    <td>@url.ScoreByGoogle</td>
+                </tr>
+            }
+        </table>
+    }
+}
